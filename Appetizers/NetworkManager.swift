@@ -41,8 +41,8 @@ final class NetworkManager {
             
             do {
                 let decoder = JSONDecoder()
-                let appetizers = try decoder.decode([Appetizer].self, from: data) // Veri bu değişkende saklı.
-                completed(.success(appetizers))
+                let appetizerResponse = try decoder.decode(AppetizerResponse.self, from: data) // Veri bu değişkende saklı.
+                completed(.success(appetizerResponse.request))
             } catch {
                 completed(.failure(.invalidData))
             }

@@ -22,17 +22,18 @@ struct AppetizerListView: View {
     }
     
     func getAppetizers() {
-           NetworkManager.shared.fetchAppetizers { result in
-               DispatchQueue.main.async {
-                   switch result {
-                   case .success(let fetchedAppetizers):
-                       appetizers = fetchedAppetizers
-                   case .failure(_):
-                       print("Veri Yüklenmedi")
-                   }
-               }
-           }
+            NetworkManager.shared.fetchAppetizers { result in
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success(let fetchedAppetizers):
+                        appetizers = fetchedAppetizers // Başarılı veri alındı
+                    case .failure(_):
+                        print("Veri Yüklenemedi")
+                    }
+                }
+            }
        }
+    
 }
 
 #Preview {
